@@ -1,0 +1,29 @@
+-----------------------------------------------------------------------------
+Region: us-east-1
+StackName: tCaT-qs-workshop-default-c5b35aa968fb44438e57227b84ed0663
+*****************************************************************************
+ResourceStatusReason:  
+The following resource(s) failed to create: [UbuntuInstance].
+*****************************************************************************
+*****************************************************************************
+Events:  
+TimeStamp                         ResourceStatus      ResourceType                LogicalResourceId                                          ResourceStatusReason
+--------------------------------  ------------------  --------------------------  ---------------------------------------------------------  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2022-03-22 21:41:51.901000+00:00  CREATE_FAILED       AWS::CloudFormation::Stack  tCaT-qs-workshop-default-c5b35aa968fb44438e57227b84ed0663  The following resource(s) failed to create: [UbuntuInstance].
+2022-03-22 21:41:50.733000+00:00  CREATE_FAILED       AWS::EC2::Instance          UbuntuInstance                                             You have requested more vCPU capacity than your current vCPU limit of 16 allows for the instance bucket that the specified instance type belongs to. Please visit http://aws.amazon.com/contact-us/ec2-request to request an adjustment to this limit. (Service: AmazonEC2; Status Code: 400; Error Code: VcpuLimitExceeded; Request ID: 2f3a6c71-c157-428d-ad38-045c66eea7fc; Proxy: null)
+2022-03-22 21:41:48.036000+00:00  CREATE_IN_PROGRESS  AWS::EC2::Instance          UbuntuInstance
+2022-03-22 21:41:45.770000+00:00  CREATE_COMPLETE     AWS::IAM::InstanceProfile   RootInstanceProfile
+2022-03-22 21:39:58.893000+00:00  CREATE_COMPLETE     AWS::IAM::Policy            RolePolicies
+2022-03-22 21:39:45.661000+00:00  CREATE_IN_PROGRESS  AWS::IAM::Policy            RolePolicies                                               Resource creation Initiated
+2022-03-22 21:39:44.788000+00:00  CREATE_IN_PROGRESS  AWS::IAM::InstanceProfile   RootInstanceProfile                                        Resource creation Initiated
+2022-03-22 21:39:44.519000+00:00  CREATE_IN_PROGRESS  AWS::IAM::Policy            RolePolicies
+2022-03-22 21:39:44.377000+00:00  CREATE_IN_PROGRESS  AWS::IAM::InstanceProfile   RootInstanceProfile
+2022-03-22 21:39:41.957000+00:00  CREATE_COMPLETE     AWS::IAM::Role              RootRole
+2022-03-22 21:39:28.243000+00:00  CREATE_IN_PROGRESS  AWS::IAM::Role              RootRole                                                   Resource creation Initiated
+2022-03-22 21:39:27.403000+00:00  CREATE_IN_PROGRESS  AWS::IAM::Role              RootRole
+2022-03-22 21:39:22.114000+00:00  CREATE_IN_PROGRESS  AWS::CloudFormation::Stack  tCaT-qs-workshop-default-c5b35aa968fb44438e57227b84ed0663  User Initiated
+*****************************************************************************
+-----------------------------------------------------------------------------
+Tested on: Tuesday, 22. March 2022 09:42PM
+-----------------------------------------------------------------------------
+

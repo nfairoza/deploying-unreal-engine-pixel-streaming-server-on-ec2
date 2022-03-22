@@ -13,7 +13,7 @@ Parameters:
     ConstraintDescription: Must provide a keypair to be associated with the EC2 instance
   AMIId:
     Description: AMI ID to be use with EC2 instance
-    Type: String
+    Type: AWS::EC2::Image::Id
   SubnetId:
     Type: String
     Default: ''
@@ -57,15 +57,23 @@ Resources:
     Type: AWS::EC2::Instance
     Properties: 
       AvailabilityZone: !Ref AvailabilityZone
-      IamInstanceProfile: String
       ImageId: !Ref AMIId
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyPairName
       SecurityGroupIds: 
         - !Ref SecurityGroupId
       SubnetId: !Ref SubnetId
-      InstanceProfile: !GetAtt RootInstanceProfile
-      UserData: String
+      IamInstanceProfile: !Ref RootInstanceProfile
+      UserData: 
+        Fn::Base64: 
+          !Sub |
+            #!/bin/bash
+            sudo apt update -y
+            /home/ubuntu/Desktop/UnrealEngine/Samples/PixelStreaming/WebServers/SignallingWebServer/platform_scripts/bash/setup.sh
+            nohup /home/ubuntu/Desktop/UnrealEngine/Samples/PixelStreaming/WebServers/SignallingWebServer/platform_scripts/bash/Start_SignallingServer.sh & disown
+            nohup /home/ubuntu/Documents/PackagedProject/LinuxNoEditor/fps.sh -RenderOffScreen -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 & disown
+
+
    
   RootRole:
     Type: AWS::IAM::Role
@@ -110,36 +118,21 @@ Resources:
 
 
         
-# Outputs:
-#   WindowsInstanceId:
-#     Value:
-#       Ref: WindowsInstance
-#     Condition: CreateWindows
-#     Description: Instance ID for the newly created EC2 instance
-#   WindowsPublicDNS:
-#     Value:
-#       Fn::GetAtt:
-#       - WindowsInstance
-#       - PublicDnsName
-#     Condition: CreateWindows
-#     Description: Web URL for Streaming Server, using DNS Name of the newly created
-#       EC2 instance
-#   WindowsPublicIp:
-#     Value:
-#       Fn::GetAtt:
-#       - WindowsInstance
-#       - PublicIp
-#     Condition: CreateWindows
-#     Description: Public IP address of the newly created EC2 instance
-#   WindowsDcvURL:
-#     Value:
-#       Fn::Join:
-#       - ''
-#       - - https://
-#         - Fn::GetAtt:
-#           - WindowsInstance
-#           - PublicIp
-#         - ":8443"
-#     Condition: CreateWindows
-#     Description: Connection URL for web access to the newly created EC2 instance via
-#       NICE DCV
+Outputs:
+  UbuntiInstanceId:
+    Value:
+      Ref: UbuntuInstance
+    Description: Instance ID for the newly created EC2 instance
+  InstancePublicDNS:
+    Value:
+      Fn::GetAtt:
+      - UbuntuInstance
+      - PublicDnsName
+    Description: Web URL for Streaming Server, using DNS Name of the newly created
+      EC2 instance
+  INstancePublicIp:
+    Value:
+      Fn::GetAtt:
+      - UbuntuInstance
+      - PublicIp
+    Description: Public IP address of the newly created EC2 instance

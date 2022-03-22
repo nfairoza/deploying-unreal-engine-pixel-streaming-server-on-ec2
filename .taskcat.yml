@@ -16,6 +16,6 @@ tests:
       QSS3BucketRegion: "$[taskcat_current_region]"
       QSS3BucketName: "$[taskcat_autobucket]"
       AMIId: ami-01bead299c8896f9d
-      InstanceType: g4dn.2xlarge
+      InstanceType: g4dn.xlarge
       SecurityGroupId: sg-0e31a3d5ae823c66b
 
