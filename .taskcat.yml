@@ -1,0 +1,21 @@
+project:
+  name: qs-workshop
+  regions:
+  - us-east-1
+tests:
+  default:
+    template: ./Pixel-streamer-ubuntu/create-ue-ec2.yaml
+    regions:
+    - us-east-1
+    parameters:
+      AvailabilityZones: "$taskcat_getaz_1"
+      # EmailAddress: nfairoza@gmail.com
+      KeyPairName: unreal-us-east
+      # WebserverCIDR: "0.0.0.0/0"
+      QSS3KeyPrefix: "qs-workshop/"
+      QSS3BucketRegion: "$[taskcat_current_region]"
+      QSS3BucketName: "$[taskcat_autobucket]"
+      AMIId: ami-01bead299c8896f9d
+      InstanceType: g4dn.2xlarge
+      SecurityGroupId: sg-0e31a3d5ae823c66b
+

@@ -1,0 +1,59 @@
+  DCVSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: DCV Security Group
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '22'
+        ToPort: '22'
+        CidrIp:
+          Ref: NiceDCVAccessCIDR
+        Description: SSH Port
+      - IpProtocol: tcp
+        FromPort: '3389'
+        ToPort: '3389'
+        CidrIp:
+          Ref: NiceDCVAccessCIDR
+        Description: Remote Desktop Port
+      - IpProtocol: tcp
+        FromPort: '8443'
+        ToPort: '8443'
+        CidrIp:
+          Ref: NiceDCVAccessCIDR
+        Description: NICE DCV Port
+      - IpProtocol: tcp
+        FromPort: '80'
+        ToPort: '80'
+        CidrIp:
+          Ref: PixelStreamingAccessCIDR
+        Description: UE4 Pixel Streamer - Webserver Port
+      - IpProtocol: tcp
+        FromPort: '443'
+        ToPort: '443'
+        CidrIp:
+          Ref: PixelStreamingAccessCIDR
+        Description: UE4 Pixel Streamer - Secure Webserver Port
+      - IpProtocol: tcp
+        FromPort: '8888'
+        ToPort: '8888'
+        CidrIp:
+          Ref: PixelStreamingAccessCIDR
+        Description: UE4 Pixel Streamer - Application Streaming Port
+      - IpProtocol: udp
+        FromPort: '8888'
+        ToPort: '8888'
+        CidrIp:
+          Ref: PixelStreamingAccessCIDR
+        Description: UE4 Pixel Streamer - Application Streaming Port
+      - IpProtocol: tcp
+        FromPort: '19302'
+        ToPort: '19303'
+        CidrIp:
+          Ref: PixelStreamingAccessCIDR
+        Description: UE4 Pixel Streamer - STUN/TURN Ports
+      - IpProtocol: udp
+        FromPort: '19302'
+        ToPort: '19303'
+        CidrIp:
+          Ref: PixelStreamingAccessCIDR
+        Description: UE4 Pixel Streamer - STUN/TURN Ports
