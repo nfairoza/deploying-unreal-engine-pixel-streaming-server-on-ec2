@@ -69,9 +69,12 @@ Resources:
           !Sub |
             #!/bin/bash
             sudo apt update -y
-            /home/ubuntu/Desktop/UnrealEngine/Samples/PixelStreaming/WebServers/SignallingWebServer/platform_scripts/bash/setup.sh
-            nohup /home/ubuntu/Desktop/UnrealEngine/Samples/PixelStreaming/WebServers/SignallingWebServer/platform_scripts/bash/Start_SignallingServer.sh & disown
-            nohup /home/ubuntu/Documents/PackagedProject/LinuxNoEditor/fps.sh -RenderOffScreen -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 & disown
+            sudo echo "ubuntu:password" | sudo chpasswd
+            cd /home/ubuntu/Desktop/UnrealEngine/Samples/PixelStreaming/WebServers/SignallingWebServer/platform_scripts/bash
+            ./setup.sh
+            nohup ./Start_SignallingServer.sh & disown
+            cd /home/ubuntu/Documents/PackagedProject/LinuxNoEditor/
+            nohup ./fps.sh -RenderOffScreen -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 & disown
 
 
    

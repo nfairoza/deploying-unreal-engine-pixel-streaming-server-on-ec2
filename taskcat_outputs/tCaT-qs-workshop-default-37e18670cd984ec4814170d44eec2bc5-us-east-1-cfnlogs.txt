@@ -1,0 +1,30 @@
+-----------------------------------------------------------------------------
+Region: us-east-1
+StackName: tCaT-qs-workshop-default-37e18670cd984ec4814170d44eec2bc5
+*****************************************************************************
+ResourceStatusReason:  
+Stack launch was successful
+*****************************************************************************
+*****************************************************************************
+Events:  
+TimeStamp                         ResourceStatus      ResourceType                LogicalResourceId                                          ResourceStatusReason
+--------------------------------  ------------------  --------------------------  ---------------------------------------------------------  ---------------------------
+2022-03-23 02:55:31.057000+00:00  CREATE_COMPLETE     AWS::CloudFormation::Stack  tCaT-qs-workshop-default-37e18670cd984ec4814170d44eec2bc5
+2022-03-23 02:55:28.389000+00:00  CREATE_COMPLETE     AWS::EC2::Instance          UbuntuInstance
+2022-03-23 02:55:20.188000+00:00  CREATE_IN_PROGRESS  AWS::EC2::Instance          UbuntuInstance                                             Resource creation Initiated
+2022-03-23 02:55:17.360000+00:00  CREATE_IN_PROGRESS  AWS::EC2::Instance          UbuntuInstance
+2022-03-23 02:55:15.197000+00:00  CREATE_COMPLETE     AWS::IAM::InstanceProfile   RootInstanceProfile
+2022-03-23 02:53:28.693000+00:00  CREATE_COMPLETE     AWS::IAM::Policy            RolePolicies
+2022-03-23 02:53:15.473000+00:00  CREATE_IN_PROGRESS  AWS::IAM::Policy            RolePolicies                                               Resource creation Initiated
+2022-03-23 02:53:14.575000+00:00  CREATE_IN_PROGRESS  AWS::IAM::InstanceProfile   RootInstanceProfile                                        Resource creation Initiated
+2022-03-23 02:53:14.119000+00:00  CREATE_IN_PROGRESS  AWS::IAM::InstanceProfile   RootInstanceProfile
+2022-03-23 02:53:13.788000+00:00  CREATE_IN_PROGRESS  AWS::IAM::Policy            RolePolicies
+2022-03-23 02:53:11.664000+00:00  CREATE_COMPLETE     AWS::IAM::Role              RootRole
+2022-03-23 02:52:57.796000+00:00  CREATE_IN_PROGRESS  AWS::IAM::Role              RootRole                                                   Resource creation Initiated
+2022-03-23 02:52:57.226000+00:00  CREATE_IN_PROGRESS  AWS::IAM::Role              RootRole
+2022-03-23 02:52:51.566000+00:00  CREATE_IN_PROGRESS  AWS::CloudFormation::Stack  tCaT-qs-workshop-default-37e18670cd984ec4814170d44eec2bc5  User Initiated
+*****************************************************************************
+-----------------------------------------------------------------------------
+Tested on: Wednesday, 23. March 2022 02:55AM
+-----------------------------------------------------------------------------
+
