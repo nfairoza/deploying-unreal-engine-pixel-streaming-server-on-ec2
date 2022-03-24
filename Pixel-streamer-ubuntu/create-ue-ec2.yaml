@@ -74,7 +74,7 @@ Resources:
             ./setup.sh
             nohup ./Start_SignallingServer.sh & disown
             cd /home/ubuntu/Documents/PackagedProject/LinuxNoEditor/
-            nohup ./fps.sh -RenderOffScreen -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 & disown
+            runuser -l ubuntu -c  ./fps.sh -RenderOffScreen -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 & disown
 
 
    
