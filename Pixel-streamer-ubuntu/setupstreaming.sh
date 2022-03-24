@@ -2,7 +2,10 @@
 sudo apt update -y
 sudo echo "ubuntu:password" | sudo chpasswd
 cd /home/ubuntu/Documents/PackagedProject/LinuxNoEditor/
-nohup ./fps.sh -RenderOffScreen -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 > /dev/null 2>&1 &
+pwd
+echo starting fps
+./fps.sh -RenderOffScreen -PixelStreamingIP=127.0.0.1 -PixelStreamingPort=8888 & disown
+wait 10
 cd /home/ubuntu/Desktop/UnrealEngine/Samples/PixelStreaming/WebServers/SignallingWebServer/platform_scripts/bash
 ./setup.sh
 nohup ./Start_SignallingServer.sh & disown
